@@ -1,0 +1,25 @@
+.button{
+  font-size: 1 rem; /*  A font-size propriedade define o tamanho de uma fonte. */
+  font-family: var(--type-firts); /* A font-familypropriedade especifica a fonte de um elemento. */
+  cursor: pointer; /*  Usado quando pairando o cursor sobre links, tipicamente uma mão.*/
+  border: none; /* A border-stylepropriedade define o estilo das quatro bordas de um elemento. Esta propriedade pode ter de um a quatro valores.*/
+  border-radius: 0.4rem; /* Esta propriedade permite adicionar cantos arredondados aos elementos!  */
+  background: #fb1; /*Você pode definir a cor de fundo para qualquer elemento HTML: */
+  color: #764701; /* O que é color CSS?
+  A propriedade color do CSS definine o valor da cor de um elemento com seu conteúdo em texto e seus decorações*/
+  min-width: 8rem; /* A min-widthpropriedade define a largura mínima de um elemento. */
+  padding: 0.8rem 1.2rem; /* A propriedade padding define uma a distância entre o conteúdo de um elemento e suas bordas*/
+  box-sizing: border-box; /* A box-sizingpropriedade define como a largura e a altura de um elemento são calculadas: devem incluir preenchimento e bordas ou não.*/
+  transition: 0.1s; /* As transições CSS permitem que você altere os valores das propriedades sem problemas, durante um determinado período. */
+}
+
+button:hover, /* O :hoverseletor é usado para selecionar elementos quando você passa o mouse sobre eles.*/
+button:focus { /* é aplicada quando um elemento recebe foco, o que pode ocorrer quando o usuário seleciona o elemento utilizando o teclado ou ativando o mesmo com o mouse*/
+  outline: none; /* A propriedade CSS outline é uma propriedade abreviada para configurar uma ou mais das propriedades de contorno */
+  box-shadow: 0 0 0 3px #fea, 0 0 0 4px #fb1; /* O box-shadow é uma propriedade do CSS, é utilizado para adicionar efeitos de sombra em volta de um elemento*/
+}
+
+button:disabled { /* quando o button estiver desabilidado */
+  opacity: 0.5rem; /* propriedade especifica a opacidade/transparência de um elemento.*/
+  cursor: wait;  /*  uma ampulheta ou relógio). */
+}

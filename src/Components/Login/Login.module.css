@@ -1,0 +1,33 @@
+.login{
+  display: grid; /* Torna o elemento um grid container.*/
+  grid-template-columns: 1fr 1fr; /* 2 colunas criadas com o mesmo tamanho*/
+  min-height: 100vh; /* altura mínima do elemento*/
+  gap: 2rem; /*define as lacunas ( medianizes ) entre linhas e colunas*/
+}
+
+.login::before {
+display: block; /*faz com que o elemento HTML seja renderizado como bloco,*/
+content: ''; /*A contentpropriedade é usada com os pseudoelementos ::before e ::after , para inserir o conteúdo gerado.*/
+background: url(../../Assets/login.jpg) no-repeat center center; 
+background-size: cover;  /*propriedade especifica o tamanho das imagens de fundo.*/
+}
+
+
+.forms{
+  width: 30rem; /**/
+  padding: 1rem; /**/
+  margin-top: 20vh;
+} 
+
+
+@media (max-width: 40rem){
+  .login {
+      grid-template-columns: 1fr;
+  }
+  .login::before{
+      display: none;
+  }
+  .forms{
+      max-width: 100%;
+  }
+}
