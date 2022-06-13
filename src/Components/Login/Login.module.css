@@ -8,7 +8,7 @@
 .login::before {
 display: block; /*faz com que o elemento HTML seja renderizado como bloco,*/
 content: ''; /*A contentpropriedade é usada com os pseudoelementos ::before e ::after , para inserir o conteúdo gerado.*/
-background: url(../../Assets/login.jpg) no-repeat center center; 
+background: url(../../Assets/cruz4.jpg) no-repeat center center; 
 background-size: cover;  /*propriedade especifica o tamanho das imagens de fundo.*/
 }
 
