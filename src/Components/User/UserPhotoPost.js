@@ -14,17 +14,31 @@ const UserPhotoPost = () => {
   const peso = useForm('number');
   const idade = useForm('number');
   const [img, setImg] = React.useState({});
+  const [image, setImage] = React.useState("");
   const { data, error, loading, request } = useFetch();
-  const navigate = useNavigate();
 
+  const handleFileRead = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        if (typeof reader.result == "string") {
+            setImage(reader.result)
+        }
+          console.log(reader.result);
+    };
+}
+  
+  const navigate = useNavigate();
   React.useEffect(() => {
     if (data) navigate('/conta');
   }, [data, navigate]);
 
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('img', img.raw);
+    formData.append('image', image);
     formData.append('nome', nome.value);
     formData.append('peso', peso.value);
     formData.append('idade', idade.value);
@@ -34,12 +48,6 @@ const UserPhotoPost = () => {
     request(url, options);
   }
 
-  function handleImgChange({ target }) {
-    setImg({
-      preview: URL.createObjectURL(target.files[0]),
-      raw: target.files[0],
-    });
-  }
 
   return (
     <section className={`${styles.photoPost} animeLeft`}>
@@ -48,12 +56,11 @@ const UserPhotoPost = () => {
         <Input label="Nome" type="text" name="nome" {...nome} />
         <Input label="Peso" type="number" name="peso" {...peso} />
         <Input label="Idade" type="number" name="idade" {...idade} />
-        <input
-          className={styles.file}
-          type="file"
-          name="img"
-          id="img"
-          onChange={handleImgChange}
+        <input  
+        className={styles.file} 
+        type="file" 
+        name="image"   
+        onChange={handleFileRead} 
         />
         {loading ? (
           <Button disabled>Enviando...</Button>

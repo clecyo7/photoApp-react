@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
-import { ReactComponent as MinhasFotos } from '../../Assets/feed.svg';
-import { ReactComponent as Estatisticas } from '../../Assets/estatisticas.svg';
+import { ReactComponent as MinhasEventos } from '../../Assets/feed.svg';
 import { ReactComponent as Evento } from '../../Assets/evento.svg';
-import { ReactComponent as AdicionarFoto } from '../../Assets/adicionar.svg';
+import { ReactComponent as AdicionarEvento } from '../../Assets/adicionar.svg';
+import { ReactComponent as EditarEvento } from '../../Assets/edit.svg';
+import { ReactComponent as Voltar } from '../../Assets/voltar.svg';
 import { ReactComponent as Sair } from '../../Assets/sair.svg';
-import styles from './UserHeaderNav.module.css';
+import styles from './EventoHeaderNav.module.css';
 import useMedia from '../../Hooks/useMedia';
 
-const UserHeaderNav = () => {
+const EventoHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext);
   const mobile = useMedia('(max-width: 40rem)');
   const [mobileMenu, setMobileMenu] = React.useState(false);
@@ -36,22 +37,30 @@ const UserHeaderNav = () => {
           mobileMenu && styles.navMobileActive
         }`}
       >
-        <NavLink to="/conta" end>
-          <MinhasFotos />
-          {mobile && 'Minhas Fotos'}
+        <NavLink to="/event" end>
+          <MinhasEventos />
+          {mobile && 'Meus Eventos'}
         </NavLink>
-        <NavLink to="/conta/estatisticas">
-          <Estatisticas />
-          {mobile && 'Estatísticas'}
+
+        <NavLink to="/event/create">
+          <AdicionarEvento />
+          {mobile && 'Criar Evento'}
         </NavLink>
-        <NavLink to="/event">
+
+        <NavLink to="/event/show">
           <Evento />
-          {mobile && 'Eventos'}
+          {mobile && 'Visualização de Eventos'}
         </NavLink>
-        <NavLink to="/conta/postar">
-          <AdicionarFoto />
-          {mobile && 'Adicionar Foto'}
+
+        <NavLink to="/event/update">
+          <EditarEvento />
+          {mobile && 'Editar Evento'}
         </NavLink>
+        <NavLink to="/conta">
+          <Voltar />
+          {mobile && 'Voltar'}
+        </NavLink>
+
         <button onClick={userLogout}>
           <Sair />
           {mobile && 'Sair'}
@@ -61,4 +70,4 @@ const UserHeaderNav = () => {
   );
 };
 
-export default UserHeaderNav;
+export default EventoHeaderNav;

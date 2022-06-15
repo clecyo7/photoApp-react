@@ -67,7 +67,7 @@ export function USER_POST(body) {
 
 export function PHOTO_POST(formData, token) {
   return {
-    url: API_URL + '/api/photo',
+    url: API_LARAVEL_URL + '/photo',
     options: {
       method: 'POST',
       headers: {
@@ -78,12 +78,15 @@ export function PHOTO_POST(formData, token) {
   };
 }
 
-export function PHOTOS_GET({ page, total, user }) {
+export function PHOTOS_GET(token) {
   return {
-    url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
+    url: API_LARAVEL_URL + '/photo',
     options: {
       method: 'GET',
       cache: 'no-store',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
     },
   };
 }
@@ -162,6 +165,34 @@ export function STATS_GET() {
       method: 'GET',
       headers: {
         Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+      },
+    },
+  };
+}
+
+
+export function EVENT_POST(body) {
+  return {
+    url: API_LARAVEL_URL + '/event',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function EVENT_GET(token) {
+  return {
+    url: API_LARAVEL_URL + '/event',
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+      headers: {
+        Authorization: 'Bearer ' + token,
       },
     },
   };

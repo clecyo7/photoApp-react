@@ -11,6 +11,8 @@ import ProtectedRoute from './Components/Helper/ProtectedRoute';
 import Photo from './Components/Photo/Photo';
 import UserProfile from './Components/User/UserProfile';
 import NotFound from './Components/NotFound';
+import Evento from './Components/Evento/Evento';
+import  'bootstrap/dist/css/bootstrap.min.css' ;
 
 function App() {
   return (
@@ -27,6 +29,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <User />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="event/*"
+                element={
+                  <ProtectedRoute>
+                    <Evento />
                   </ProtectedRoute>
                 }
               />

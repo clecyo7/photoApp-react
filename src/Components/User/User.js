@@ -8,6 +8,8 @@ import { UserContext } from '../../UserContext';
 import NotFound from '../NotFound';
 import Head from '../Helper/Head';
 
+import Evento from '../Evento/Evento';
+
 const User = () => {
   const { data } = React.useContext(UserContext);
   //console.log(data)
@@ -20,6 +22,7 @@ const User = () => {
         <Route path="/" element={<Feed user={data.name} />} />
         <Route path="postar" element={<UserPhotoPost />} />
         <Route path="estatisticas" element={<UserStats />} />
+        <Route path="event" element={<Evento />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </section>

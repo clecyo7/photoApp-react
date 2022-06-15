@@ -1,9 +1,9 @@
 import React from 'react';
-import UserHeaderNav from './UserHeaderNav';
-import styles from './UserHeader.module.css';
+import EventoHeaderNav from './EventoHeaderNav';
+import styles from './EventoHeader.module.css';
 import { useLocation } from 'react-router-dom';
 
-const UserHeader = () => {
+const EventoHeader = () => {
   const [title, setTitle] = React.useState('');
   const location = useLocation();
 
@@ -13,23 +13,30 @@ const UserHeader = () => {
   React.useEffect(() => {
     const { pathname } = location;
     switch (pathname) {
-      case '/conta/postar':
-        setTitle('Poste Sua Foto');
+
+      case '/event/create':
+        setTitle('Criar Evento');
         break;
-      case '/conta/estatisticas':
-        setTitle('Estatísticas');
+
+      case '/event/show':
+        setTitle('Visualizar Evento');
         break;
+
+      case '/event/update':
+        setTitle('Editar Evento');
+        break;
+
       default:
-        setTitle('Minha Fotos');
+        setTitle('Meus Eventos');
     }
   }, [location]);
 
   return (
       <header className={styles.header}>
         <h1 className="title">{title}</h1>
-        <UserHeaderNav />
+        <EventoHeaderNav />
       </header>
   );
 };
 
-export default UserHeader;
+export default EventoHeader;
