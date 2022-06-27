@@ -22,9 +22,6 @@ const EventoHeader = () => {
         setTitle('Visualizar Evento');
         break;
 
-      case '/event/update':
-        setTitle('Editar Evento');
-        break;
 
       default:
         setTitle('Meus Eventos');
