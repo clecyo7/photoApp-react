@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedEventItem from './FeedEventItem';
+import FeedPhotosItem from '../Feed/FeedPhotosItem';
 import useFetch from '../../Hooks/useFetch';
 import { EVENT_GET } from '../../Api';
 import Error from '../Helper/Error';
@@ -25,48 +25,14 @@ const ListEvento = () => {
   if (data)
     return (
       <ul className={`${styles.feed} animeLeft`}>
-        {data.length > 0 && data.map((event) => (
-          <FeedEventItem
+        {data.map((event) => (
+          <FeedPhotosItem
             key={event.id}
-            event={event}
+            photo={event}
             //setModalPhoto={setModalPhoto}
           />
         ))}
       </ul>
-
-
-      // <div className='table-overflow'>
-      //   <table className="table table-borderless my-0 list-select">
-      //     <thead>
-      //       <tr>
-      //         <th>Reunião</th>
-      //         <th>Data</th>
-      //         <th>Horario</th>
-      //       </tr>
-      //     </thead>
-      //     <tbody>
-
-
-
-      //       {data.length > 0 && data.map((event) => (
-      //         <tr>
-      //           <td className="">
-      //             <p>{event.name}</p>
-      //           </td>
-      //           <td>
-      //             <p>{event.date}</p>
-      //           </td>
-      //           <td>
-      //             <p>{event.time}</p>
-      //           </td>
-      //         </tr>
-      //       ))}
-      //     </tbody>
-      //   </table>
-      // </div>
-
-
-
     );
   else return null;
 };

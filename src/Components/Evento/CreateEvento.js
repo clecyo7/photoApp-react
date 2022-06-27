@@ -15,21 +15,16 @@ const CreateEvento = () => {
   const date = useForm();
   const place = useForm();
   const time = useForm();
-  const [status, setStatus] = React.useState(true);
 
 
   const { data, error, loading, request } = useFetch();
 
-
+  
   const navigate = useNavigate();
   React.useEffect(() => {
     if (data) navigate('/event');
   }, [data, navigate]);
 
-
-  const handleStatus = (e) => {
-    setStatus(!status);
-}
 
   // function handleSubmit(event) {
   //   event.preventDefault();
@@ -53,8 +48,7 @@ const CreateEvento = () => {
       description: description.value,
       date: date.value,
       place: place.value,
-      time: time.value,
-      status: status
+      time: time.value
     });
     const { response, json } = await request(url, options);
   }
@@ -70,16 +64,7 @@ const CreateEvento = () => {
         <Input label="Data" type="date" name="date" {...date} />
         <Input label="Local" type="text" name="place" {...place} />
         <Input label="Horário" type="time" name="time" {...time} />
-        <div className='row'>
-          <h5 className="card-title">Situação do Evento</h5>
-          <div className="mb-3 col-md-4">
-            <div className="form-check form-switch ">
-              <label className="form-check-label" >{status ? 'Ativo' : 'Inativo'}</label>
-              <input className="form-check-input" type="checkbox" name='st_banco' checked={status} onClick={handleStatus} />
-            </div>
-          </div>
-        </div>
-        <br />
+   
         {loading ? (
           <Button disabled>Enviando...</Button>
         ) : (
