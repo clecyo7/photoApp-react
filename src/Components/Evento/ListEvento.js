@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedPhotosItem from '../Feed/FeedPhotosItem';
+import FeedEventItem from './FeedEventItem';
 import useFetch from '../../Hooks/useFetch';
 import { EVENT_GET } from '../../Api';
 import Error from '../Helper/Error';
@@ -25,10 +25,10 @@ const ListEvento = () => {
   if (data)
     return (
       <ul className={`${styles.feed} animeLeft`}>
-        {data.map((event) => (
-          <FeedPhotosItem
+       {data.length > 0 && data.map((event) => (
+          <FeedEventItem
             key={event.id}
-            photo={event}
+            event={event}
             //setModalPhoto={setModalPhoto}
           />
         ))}
