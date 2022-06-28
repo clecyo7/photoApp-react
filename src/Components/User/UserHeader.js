@@ -20,7 +20,7 @@ const UserHeader = () => {
         setTitle('Estatísticas');
         break;
       default:
-        setTitle('Minha Fotos');
+        setTitle('Painel Geral');
     }
   }, [location]);
 

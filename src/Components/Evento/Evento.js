@@ -8,6 +8,7 @@ import CreateEvento from './CreateEvento';
 import ShowEvento from './ShowEvento';
 import UpdateEvento from './UpdateEvento';
 import EventoHeader from './EventoHeader';
+import  'bootstrap/dist/css/bootstrap.min.css' ;
 
 const Evento = () => {
   const { data } = React.useContext(UserContext);

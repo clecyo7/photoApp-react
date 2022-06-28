@@ -21,10 +21,7 @@ const UpdateEvento = () => {
 
   
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (data) navigate('/event');
-  // }, [data, navigate]);
-
+ 
   useEffect(() => {
     async function fetchEvents() {
      // const token = window.localStorage.getItem('token');
@@ -42,13 +39,19 @@ const UpdateEvento = () => {
   }, [request]);
 
 
+  const capitalizeFirst = (str) => {
+    const subst = str.toLowerCase().replace(/(?:^|\s)\S/g, function (a) {
+        return a.toUpperCase();
+    });
+    return subst;
+}
 
   const handleChangeName = (e) => {
-    setName(e.target.value);
+    setName(capitalizeFirst(e.target.value));
 }
 
 const handleDescription = (e) => {
-  setDescription(e.target.value);
+  setDescription(capitalizeFirst(e.target.value));
 }
 
 const handleDate = (e) => {
@@ -56,7 +59,7 @@ const handleDate = (e) => {
 }
 
 const handlePlace = (e) => {
-  setPlace(e.target.value);
+  setPlace(capitalizeFirst(e.target.value));
 }
 
 const handleTime = (e) => {

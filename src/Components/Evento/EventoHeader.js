@@ -19,7 +19,7 @@ const EventoHeader = () => {
         break;
 
       case '/event/show':
-        setTitle('Visualizar Evento');
+        setTitle('Lista de Eventos');
         break;
         case '/event/update':
           setTitle('Editar Evento');
