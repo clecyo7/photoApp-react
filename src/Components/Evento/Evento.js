@@ -21,7 +21,7 @@ const Evento = () => {
         <Route path="/" element={<ListEvento />} />
         <Route path="create" element={<CreateEvento />} />
         <Route path="show" element={<ShowEvento />} />
-        <Route path="update" element={<UpdateEvento />} />
+        <Route path="update/:id" element={<UpdateEvento />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </section>

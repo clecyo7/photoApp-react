@@ -3,6 +3,7 @@ import styles from './FeedEventItem.module.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const FeedEventItem = ({ event, setModalPhoto }) => {
 
@@ -45,9 +46,9 @@ const FeedEventItem = ({ event, setModalPhoto }) => {
           <Button variant="secondary" onClick={handleClose}>
             Fechar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Editar
-          </Button>
+          <Link className="btn btn-pill btn-primary"  to={"/event/update/" + event.id}>
+         Editar
+          </Link>
         </Modal.Footer>
       </Modal>
     </>

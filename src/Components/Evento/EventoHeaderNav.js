@@ -19,6 +19,11 @@ const EventoHeaderNav = () => {
     setMobileMenu(false);
   }, [pathname]);
 
+  function goBack(){
+    window.history.back()
+  }
+
+  
   return (
     <>
       {mobile && (
@@ -50,10 +55,10 @@ const EventoHeaderNav = () => {
           <Evento />
           {mobile && 'Visualização de Eventos'}
         </NavLink>
-        <NavLink to="/conta">
+        <button onClick={goBack}>
           <Voltar />
           {mobile && 'Voltar'}
-        </NavLink>
+        </button>
 
         <button onClick={userLogout}>
           <Sair />

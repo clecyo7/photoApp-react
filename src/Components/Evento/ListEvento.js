@@ -10,14 +10,13 @@ const ListEvento = () => {
   const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
-    async function fetchPhotos() {
+    async function fetchEvents() {
       const total = 6;
       const token = window.localStorage.getItem('token');
       const { url, options } = EVENT_GET(token);
       const { response, json } = await request(url, options);
-      //if (response && response.ok && json.length < total) setInfinite(false);
     }
-    fetchPhotos();
+    fetchEvents();
   }, [request]);
 
   if (error) return <Error error={error} />;

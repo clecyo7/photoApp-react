@@ -197,3 +197,30 @@ export function EVENT_GET(token) {
     },
   };
 }
+
+export function EVENT_LIST(id) {
+  return {
+    url: API_LARAVEL_URL + '/event/' + id,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+      headers: {
+        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+      },
+    },
+  };
+}
+
+export function EVENT_UPDATE(id, body) {
+  return {
+    url: `${API_LARAVEL_URL}/event/${id}`,
+    options: {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}

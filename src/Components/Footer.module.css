@@ -1,9 +1,9 @@
 .footer {
-  background: rgb(192, 186, 186);
+  background: #85b2bb;
   padding: 1rem;
   height: 7rem;
   text-align: center;
-  color: #764701;
+  color: #d2fafa;
 }
 
 .footer p {
