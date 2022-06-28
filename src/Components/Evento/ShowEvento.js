@@ -54,7 +54,7 @@ const ShowEvento = () => {
     {
       name: "Status",
       selector: "status",
-      sortable: false
+      sortable: true
     }
   ];
   const tableData = {

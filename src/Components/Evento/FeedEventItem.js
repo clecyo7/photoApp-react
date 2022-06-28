@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import PhotoDelete from '../Photo/PhotoDelete';
 
 const FeedEventItem = ({ event, setModalPhoto }) => {
 
@@ -32,8 +33,9 @@ const FeedEventItem = ({ event, setModalPhoto }) => {
         <p>{moment(event.date).format('DD/MM/YYYY')}</p>
       </Button>
       <Modal show={show} onHide={handleClose} animation={false}>
-        <Modal.Header closeButton>
+        <Modal.Header className={styles.modal}>
           <Modal.Title>{event.name}</Modal.Title>
+          <PhotoDelete id={event.id} />
         </Modal.Header>
         <Modal.Body>
           <p><b>Descrição: </b> {event.description}</p>

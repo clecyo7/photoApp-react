@@ -47,3 +47,12 @@
 .photo:hover .visualizacao {
   display: flex;
 }
+
+
+.modal {
+  padding: 2rem 2rem 0 2rem;
+}
+
+.single .modal {
+  padding: 1rem 0px 0px 0px;
+}
